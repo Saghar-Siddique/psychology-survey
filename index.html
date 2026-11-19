@@ -8,31 +8,37 @@
 <title>Defense Mechanisms and Exam Stress Survey</title>
 <style>
   :root{
-    --bg:#f7f3f4;
-    --surface:#fffdfd;
-    --surface-2:#f6eef1;
-    --ink:#3d3638;
-    --ink-soft:#5d5257;
-    --line:#eadfe3;
-    --accent:#96586c;
+    --bg:#eef3f8;
+    --surface:#ffffff;
+    --surface-2:#eaf2fa;
+    --ink:#1c2b3a;
+    --ink-soft:#4a5d72;
+    --line:#d7e3ef;
+    --accent:#0f4c81;
     --accent-ink:#ffffff;
-    --accent-soft:#f7e8ec;
+    --accent-soft:#e3eefb;
+    --gold:#f5c147;
+    --gold-soft:#fdf6e0;
+    --gold-ink:#0f4c81;
     --danger:#a8433a;
     --danger-bg:#f9ebe8;
     --radius:18px;
-    --shadow:0 1px 2px rgba(90,60,70,.06), 0 8px 22px rgba(90,60,70,.07);
+    --shadow:0 1px 2px rgba(15,76,129,.08), 0 8px 22px rgba(15,76,129,.09);
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#1d181d;
-      --surface:#26202a;
-      --surface-2:#2e2733;
-      --ink:#f3e9ee;
-      --ink-soft:#c2b3bb;
-      --line:#3d333b;
-      --accent:#d9a5b8;
-      --accent-ink:#2b1620;
-      --accent-soft:#33262e;
+      --bg:#0d1b2a;
+      --surface:#152a42;
+      --surface-2:#1b3450;
+      --ink:#eaf2fb;
+      --ink-soft:#b9c9da;
+      --line:#2a4258;
+      --accent:#6db3f2;
+      --accent-ink:#0a1f33;
+      --accent-soft:#1d3a5c;
+      --gold:#f5c147;
+      --gold-soft:#2e2608;
+      --gold-ink:#f5c147;
       --danger:#e0a49c;
       --danger-bg:#3a2422;
       --shadow:0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
@@ -43,7 +49,7 @@
   body{
     margin:0;
     background:url("background.jpg") center center / cover no-repeat fixed;
-    background-color:#e8dde2;
+    background-color:#dbe7f2;
     background-attachment:fixed;
     color:var(--ink);
     font-family:"Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -54,8 +60,9 @@
 
   /* Header */
   header.top{
-    background:linear-gradient(120deg, #96586c 0%, #6f5f9e 100%);
-    color:var(--accent-ink);
+    background:linear-gradient(120deg, #0b3d91 0%, #0196f0 100%);
+    border-bottom:3px solid #f5c147;
+    color:#ffffff;
     border-radius:var(--radius);
     padding:26px 22px 22px;
     box-shadow:var(--shadow);
@@ -215,8 +222,8 @@
     min-height:58px;
     border:none;
     border-radius:12px;
-    background:linear-gradient(120deg, #96586c 0%, #6f5f9e 100%);
-    color:var(--accent-ink);
+    background:linear-gradient(120deg, #0b3d91 0%, #0196f0 100%);
+    color:#ffffff;
     font-size:18px; font-weight:700;
     cursor:pointer;
     box-shadow:var(--shadow);
@@ -242,7 +249,7 @@
     background:transparent; color:var(--danger);
     font-size:16px; font-weight:700; cursor:pointer;
   }
-  .privacy-banner{ display:table; margin:0 auto 14px; background:var(--accent-soft); border:1.5px solid var(--accent); border-radius:999px; padding:10px 22px; text-align:center; color:var(--accent); font-size:16px; font-weight:700; box-shadow:var(--shadow); }
+  .privacy-banner{ display:table; margin:0 auto 14px; background:var(--gold-soft); border:1.5px solid var(--gold); border-radius:999px; padding:10px 22px; text-align:center; color:var(--gold-ink); font-size:16px; font-weight:700; box-shadow:var(--shadow); }
 
   /* Thank you */
   .thanks{
