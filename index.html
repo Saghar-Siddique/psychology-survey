@@ -272,12 +272,7 @@
   .thanks .check svg{ width:32px; height:32px; }
   .thanks h2{ margin:0 0 8px; font-size:23px; }
   .thanks p{ margin:0; color:var(--ink-soft); }
-  .thanks .again{ margin-top:18px; }
-  .thanks .again button{
-    background:none; border:none; padding:0;
-    color:var(--accent); font-size:14.5px; font-weight:600;
-    text-decoration:underline; cursor:pointer; font-family:inherit;
-  }
+
 
   @media (max-width:480px){
     body{ font-size:16.5px; }
@@ -544,7 +539,6 @@
     </div>
     <h2>Thank you! Your response has been recorded.</h2>
     <p>Your answers will help with this Psychology research project.</p>
-    <p class="again"><button type="button" id="againBtn">This is a different person — submit a new response</button></p>
   </div>
 
 </div>
@@ -559,10 +553,6 @@
   var SUBMITTED_KEY = "dm-survey-submitted";
   var alreadySubmitted = false;
   try { alreadySubmitted = !!localStorage.getItem(SUBMITTED_KEY); } catch (e) {}
-  document.getElementById("againBtn").addEventListener("click", function(){
-    try { localStorage.removeItem(SUBMITTED_KEY); } catch (e) {}
-    window.location.reload();
-  });
   if (alreadySubmitted){
     document.getElementById("survey").style.display = "none";
     document.getElementById("thanks").classList.add("show");
