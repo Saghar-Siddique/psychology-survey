@@ -38,21 +38,11 @@
       --shadow:0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
     }
   }
-  @media (prefers-color-scheme: dark){
-    body{
-      background:
-        linear-gradient(rgba(29,24,29,.72), rgba(29,24,29,.78)),
-        url("background.jpg") center center / cover no-repeat fixed;
-      background-color:#1d181d;
-    }
-  }
   *{ box-sizing:border-box; }
   html{ -webkit-text-size-adjust:100%; }
   body{
     margin:0;
-    background:
-      linear-gradient(rgba(253,250,251,.62), rgba(253,250,251,.70)),
-      url("background.jpg") center center / cover no-repeat fixed;
+    background:url("background.jpg") center center / cover no-repeat fixed;
     background-color:#e8dde2;
     background-attachment:fixed;
     color:var(--ink);
@@ -112,7 +102,12 @@
   /* Sections */
   section.block{ margin-top:30px; }
   .section-head{
-    display:flex; align-items:baseline; gap:10px; margin:0 4px 12px;
+    display:flex; align-items:baseline; gap:10px; margin:0 0 12px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:12px 16px;
+    box-shadow:var(--shadow);
   }
   .section-head .letter{
     background:var(--accent); color:var(--accent-ink);
@@ -247,7 +242,7 @@
     background:transparent; color:var(--danger);
     font-size:16px; font-weight:700; cursor:pointer;
   }
-  .fineprint{ text-align:center; color:var(--ink-soft); font-size:14px; margin-top:14px; }
+  .fineprint{ display:table; margin:14px auto 0; background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:8px 18px; text-align:center; color:var(--ink-soft); font-size:14px; }
 
   /* Thank you */
   .thanks{
