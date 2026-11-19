@@ -8,31 +8,31 @@
 <title>Defense Mechanisms and Exam Stress Survey</title>
 <style>
   :root{
-    --bg:#f4f6f3;
-    --surface:#fbfaf7;
-    --surface-2:#eef1ec;
-    --ink:#3a3f3a;
-    --ink-soft:#565b55;
-    --line:#dfe3dc;
-    --accent:#4f7268;
+    --bg:#f7f3f4;
+    --surface:#fffdfd;
+    --surface-2:#f6eef1;
+    --ink:#3d3638;
+    --ink-soft:#5d5257;
+    --line:#eadfe3;
+    --accent:#96586c;
     --accent-ink:#ffffff;
-    --accent-soft:#e9f0ec;
+    --accent-soft:#f7e8ec;
     --danger:#a8433a;
     --danger-bg:#f9ebe8;
     --radius:18px;
-    --shadow:0 1px 2px rgba(60,70,60,.06), 0 8px 22px rgba(60,70,60,.06);
+    --shadow:0 1px 2px rgba(90,60,70,.06), 0 8px 22px rgba(90,60,70,.07);
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#181b19;
-      --surface:#212620;
-      --surface-2:#2a2f28;
-      --ink:#e6e9e2;
-      --ink-soft:#a9b0a4;
-      --line:#363d35;
-      --accent:#93b8a6;
-      --accent-ink:#16211b;
-      --accent-soft:#2b3630;
+      --bg:#1d181d;
+      --surface:#26202a;
+      --surface-2:#2e2733;
+      --ink:#f3e9ee;
+      --ink-soft:#c2b3bb;
+      --line:#3d333b;
+      --accent:#d9a5b8;
+      --accent-ink:#2b1620;
+      --accent-soft:#33262e;
       --danger:#e0a49c;
       --danger-bg:#3a2422;
       --shadow:0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
@@ -41,11 +41,11 @@
   @media (prefers-color-scheme: dark){
     body{
       background:
-        radial-gradient(640px 420px at 8% -5%, rgba(147,184,166,.12), transparent 65%),
-        radial-gradient(560px 420px at 98% 8%, rgba(140,160,190,.10), transparent 65%),
-        radial-gradient(600px 460px at 88% 95%, rgba(130,170,145,.10), transparent 65%),
-        radial-gradient(540px 420px at 2% 92%, rgba(160,150,180,.09), transparent 65%),
-        linear-gradient(160deg, #1a1f1a 0%, #1d2126 50%, #1a1f1c 100%);
+        radial-gradient(640px 420px at 8% -5%, rgba(217,165,184,.14), transparent 65%),
+        radial-gradient(560px 420px at 98% 8%, rgba(150,130,200,.12), transparent 65%),
+        radial-gradient(600px 460px at 88% 95%, rgba(217,165,184,.10), transparent 65%),
+        radial-gradient(540px 420px at 2% 92%, rgba(150,130,200,.10), transparent 65%),
+        linear-gradient(160deg, #1d181d 0%, #221c26 50%, #1d181d 100%);
     }
   }
   *{ box-sizing:border-box; }
@@ -53,11 +53,11 @@
   body{
     margin:0;
     background:
-      radial-gradient(640px 420px at 8% -5%, rgba(180,205,190,.28), transparent 65%),
-      radial-gradient(560px 420px at 98% 8%, rgba(175,195,220,.25), transparent 65%),
-      radial-gradient(600px 460px at 88% 95%, rgba(190,210,195,.25), transparent 65%),
-      radial-gradient(540px 420px at 2% 92%, rgba(205,195,215,.22), transparent 65%),
-      linear-gradient(160deg, #f6f7f4 0%, #f1f4f1 40%, #eef2f4 70%, #f3f4ef 100%);
+      radial-gradient(640px 420px at 8% -5%, rgba(245,200,215,.40), transparent 65%),
+      radial-gradient(560px 420px at 98% 8%, rgba(200,185,235,.32), transparent 65%),
+      radial-gradient(600px 460px at 88% 95%, rgba(185,225,205,.30), transparent 65%),
+      radial-gradient(540px 420px at 2% 92%, rgba(180,210,245,.30), transparent 65%),
+      linear-gradient(160deg, #fdeef2 0%, #f3edf9 35%, #e9f5ee 68%, #e9f3fb 100%);
     background-attachment:fixed;
     color:var(--ink);
     font-family:"Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -68,7 +68,7 @@
 
   /* Header */
   header.top{
-    background:linear-gradient(120deg, #4f7268 0%, #5d7f74 100%);
+    background:linear-gradient(120deg, #96586c 0%, #6f5f9e 100%);
     color:var(--accent-ink);
     border-radius:var(--radius);
     padding:26px 22px 22px;
@@ -99,6 +99,7 @@
   .intro-card p{ margin:0 0 10px; color:var(--ink-soft); }
   .intro-card p:last-child{ margin-bottom:0; }
   .intro-card .byline{ color:var(--ink); font-weight:600; }
+  .intro-card .warm{ color:var(--accent); font-weight:600; text-align:center; }
   .intro-meta{
     display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;
   }
@@ -118,7 +119,7 @@
     display:flex; align-items:baseline; gap:10px; margin:0 4px 12px;
   }
   .section-head .letter{
-    background:var(--accent); color:var(--accent-ink);
+    background:linear-gradient(135deg, #96586c, #6f5f9e); color:var(--accent-ink);
     font-weight:700; font-size:14px;
     border-radius:8px; padding:3px 9px; flex:none;
   }
@@ -223,7 +224,7 @@
     min-height:58px;
     border:none;
     border-radius:12px;
-    background:var(--accent);
+    background:linear-gradient(120deg, #96586c 0%, #6f5f9e 100%);
     color:var(--accent-ink);
     font-size:18px; font-weight:700;
     cursor:pointer;
@@ -298,6 +299,7 @@
     <p>This survey is about how students handle exam stress. It is based on Freud's idea of defense mechanisms in psychology. This survey is for school, college and university students.</p>
     <p>Taking part is your choice. Your answers are private — we do not ask your name or email. Please answer honestly. There are no right or wrong answers.</p>
     <p class="byline">By: Saghar Siddique, BS Software Engineering (3rd Semester), NUML Lahore.</p>
+    <p class="warm">♥ Thank you for sharing honestly — it really helps.</p>
     <div class="intro-meta">
       <span>16 questions</span>
       <span>Takes about 3–4 minutes</span>
