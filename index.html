@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Defense Mechanisms and Exam Stress Survey</title>
+<style>
+  :root{
+    --bg:#f4f6f5;
+    --surface:#ffffff;
+    --surface-2:#eef3f1;
+    --ink:#1c2b28;
+    --ink-soft:#43534f;
+    --line:#d7e0dc;
+    --accent:#0f6b5c;
+    --accent-ink:#ffffff;
+    --accent-soft:#e2efec;
+    --danger:#b3261e;
+    --danger-bg:#fdecea;
+    --radius:14px;
+    --shadow:0 1px 3px rgba(20,40,35,.08), 0 8px 24px rgba(20,40,35,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#101614;
+      --surface:#1a2220;
+      --surface-2:#222c29;
+      --ink:#e8efec;
+      --ink-soft:#aebbb6;
+      --line:#33413c;
+      --accent:#3fbfa6;
+      --accent-ink:#0b2420;
+      --accent-soft:#1e3a34;
+      --danger:#f2a49e;
+      --danger-bg:#3a211f;
+      --shadow:0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height:1.55;
+    font-size:17px;
+  }
+  .wrap{ max-width:680px; margin:0 auto; padding:20px 16px 56px; }
+
+  /* Header */
+  header.top{
+    background:var(--accent);
+    color:var(--accent-ink);
+    border-radius:var(--radius);
+    padding:26px 22px 22px;
+    box-shadow:var(--shadow);
+  }
+  header.top h1{
+    margin:0 0 6px;
+    font-size:26px;
+    line-height:1.25;
+    font-weight:700;
+    letter-spacing:-.01em;
+  }
+  header.top .kicker{
+    margin:0 0 10px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    opacity:.85;
+  }
+  .intro-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    margin-top:16px;
+    box-shadow:var(--shadow);
+  }
+  .intro-card p{ margin:0 0 10px; color:var(--ink-soft); }
+  .intro-card p:last-child{ margin-bottom:0; }
+  .intro-card .byline{ color:var(--ink); font-weight:600; }
+  .intro-meta{
+    display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;
+  }
+  .intro-meta span{
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:5px 12px;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--ink-soft);
+  }
+
+  /* Sections */
+  section.block{ margin-top:30px; }
+  .section-head{
+    display:flex; align-items:baseline; gap:10px; margin:0 4px 12px;
+  }
+  .section-head .letter{
+    background:var(--accent); color:var(--accent-ink);
+    font-weight:700; font-size:14px;
+    border-radius:8px; padding:3px 9px; flex:none;
+  }
+  .section-head h2{ margin:0; font-size:20px; font-weight:700; }
+  .section-head .hint{ margin:0; font-size:14px; color:var(--ink-soft); }
+
+  /* Question card */
+  .q{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 18px 14px;
+    margin-bottom:12px;
+    box-shadow:var(--shadow);
+  }
+  .q legend, .q .qtext{
+    font-size:17px; font-weight:600; line-height:1.45;
+    padding:0; margin:0 0 12px;
+  }
+  .q legend{ float:left; width:100%; }
+  .q .opts, .q select{ clear:both; }
+  .q .qnum{ color:var(--accent); font-weight:700; margin-right:6px; }
+  fieldset.q{ border:1px solid var(--line); }
+  fieldset{ min-width:0; }
+  .q.invalid{ border-color:var(--danger); }
+  .q .err{
+    display:none; margin:10px 0 2px; color:var(--danger);
+    font-size:14.5px; font-weight:600;
+  }
+  .q.invalid .err{ display:block; }
+
+  /* Options */
+  .opts{ display:flex; flex-wrap:wrap; gap:8px; }
+  .opts.scale{ display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
+  .opt{
+    position:relative;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    min-height:52px;
+    padding:10px 12px;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    background:var(--surface-2);
+    cursor:pointer;
+    font-size:15.5px; font-weight:500;
+    text-align:center;
+    -webkit-tap-highlight-color:transparent;
+    transition:border-color .12s ease, background .12s ease;
+  }
+  .opts.scale .opt{ padding:10px 4px; font-size:14.5px; }
+  .opt input[type="radio"]{
+    appearance:none; -webkit-appearance:none;
+    width:20px; height:20px; flex:none;
+    margin:0;
+    border:2px solid var(--ink-soft); border-radius:50%;
+    background:transparent;
+    cursor:pointer;
+  }
+  .opt input[type="radio"]:checked{
+    border-color:var(--accent);
+    background:radial-gradient(circle, var(--accent) 0 5.5px, transparent 6.5px);
+  }
+  .opts.scale .opt{ flex-direction:column; gap:5px; }
+  .opts.scale .opt input[type="radio"]{ width:17px; height:17px; }
+  .opt:has(input:checked){
+    border-color:var(--accent);
+    background:var(--accent-soft);
+    font-weight:700;
+  }
+  .opt input[type="radio"]:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt:active{ transform:scale(.985); }
+
+  /* Conditional blocks */
+  .cond{
+    overflow:hidden;
+    max-height:0; opacity:0;
+    transition:max-height .3s ease, opacity .25s ease, margin .3s ease;
+    margin:0;
+  }
+  .cond.show{ max-height:340px; opacity:1; margin-bottom:12px; }
+  .cond .q{ margin-bottom:0; border-color:var(--accent); background:var(--accent-soft); }
+  .cond .q{ background:var(--surface); }
+  .cond-inner{ border-left:4px solid var(--accent); border-radius:var(--radius); }
+
+  select{
+    width:100%;
+    min-height:52px;
+    font-size:16.5px;
+    padding:10px 14px;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    background:var(--surface-2);
+    color:var(--ink);
+    appearance:auto;
+  }
+  select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent); }
+
+  /* Submit area */
+  .submit-area{ margin-top:30px; }
+  .submit-btn{
+    width:100%;
+    min-height:58px;
+    border:none;
+    border-radius:12px;
+    background:var(--accent);
+    color:var(--accent-ink);
+    font-size:18px; font-weight:700;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .submit-btn:active{ transform:scale(.99); }
+  .submit-btn[disabled]{ opacity:.6; cursor:default; }
+  .form-error{
+    display:none;
+    background:var(--danger-bg);
+    border:1px solid var(--danger);
+    color:var(--danger);
+    border-radius:12px;
+    padding:14px 16px;
+    margin-bottom:14px;
+    font-weight:600;
+  }
+  .form-error.show{ display:block; }
+  .form-error .retry{
+    display:inline-block; margin-top:10px;
+    min-height:44px; padding:10px 22px;
+    border:1.5px solid var(--danger); border-radius:10px;
+    background:transparent; color:var(--danger);
+    font-size:16px; font-weight:700; cursor:pointer;
+  }
+  .fineprint{ text-align:center; color:var(--ink-soft); font-size:14px; margin-top:14px; }
+
+  /* Thank you */
+  .thanks{
+    display:none;
+    text-align:center;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:44px 24px;
+    margin-top:24px;
+  }
+  .thanks.show{ display:block; }
+  .thanks .check{
+    width:64px; height:64px; margin:0 auto 18px;
+    border-radius:50%;
+    background:var(--accent-soft);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .thanks .check svg{ width:32px; height:32px; }
+  .thanks h2{ margin:0 0 8px; font-size:23px; }
+  .thanks p{ margin:0; color:var(--ink-soft); }
+
+  @media (max-width:480px){
+    body{ font-size:16.5px; }
+    header.top h1{ font-size:23px; }
+    .opts.scale{ grid-template-columns:repeat(5,1fr); gap:5px; }
+    .opts.scale .opt{ font-size:12.5px; padding:10px 2px; min-height:56px; }
+    .opt{ font-size:15px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cond, .opt{ transition:none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <p class="kicker">Research Survey · Introduction to Psychology Project</p>
+    <h1>Defense Mechanisms and Exam Stress Among Students</h1>
+  </header>
+
+  <div class="intro-card">
+    <p>This survey is about how students handle exam stress. It is based on Freud's idea of defense mechanisms in psychology. This survey is for school, college and university students.</p>
+    <p>Taking part is your choice. Your answers are private — we do not ask your name or email. Please answer honestly. There are no right or wrong answers.</p>
+    <p class="byline">By: Saghar Siddique, BS Software Engineering (3rd Semester), NUML Lahore.</p>
+    <div class="intro-meta">
+      <span>16 questions</span>
+      <span>Takes about 3–4 minutes</span>
+      <span>Tap only — nothing to type</span>
+    </div>
+  </div>
+
+  <form id="survey" novalidate>
+
+    <!-- Section A -->
+    <section class="block" aria-labelledby="secA">
+      <div class="section-head">
+        <span class="letter">A</span>
+        <div>
+          <h2 id="secA">Exam Stress</h2>
+          <p class="hint">How often is this true for you?</p>
+        </div>
+      </div>
+
+      <fieldset class="q" data-entry="1391820725" data-name="q1">
+        <legend><span class="qnum">1.</span>I feel stressed when exams are near.</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="2725559" data-name="q2">
+        <legend><span class="qnum">2.</span>I worry about failing even when I have studied well.</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="861835014" data-name="q3">
+        <legend><span class="qnum">3.</span>Exam stress affects my sleep or eating.</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+    </section>
+
+    <!-- Section B -->
+    <section class="block" aria-labelledby="secB">
+      <div class="section-head">
+        <span class="letter">B</span>
+        <div>
+          <h2 id="secB">How Do You Usually Respond?</h2>
+          <p class="hint">How often do you do this?</p>
+        </div>
+      </div>
+
+      <fieldset class="q" data-entry="1898748524" data-name="q4">
+        <legend><span class="qnum">4.</span>When I do badly in an exam, I tell myself it is not a big deal.</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="497833497" data-name="q5">
+        <legend><span class="qnum">5.</span>I try to forget a bad result and I do not think about it.</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="2011162170" data-name="q6">
+        <legend><span class="qnum">6.</span>When I get a bad result, I think it is the teacher's fault or the paper was unfair.</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="424945928" data-name="q7">
+        <legend><span class="qnum">7.</span>When I am stressed about exams, I get angry with people around me easily.</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="1981240911" data-name="q8">
+        <legend><span class="qnum">8.</span>After a bad result, I tell myself reasons why the result does not matter (for example, 'this subject is not important').</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="625794470" data-name="q9">
+        <legend><span class="qnum">9.</span>Even when I feel very nervous before an exam, I act like I am fully confident.</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="1629996664" data-name="q10">
+        <legend><span class="qnum">10.</span>When I feel stressed about exams, I use that energy to study harder and plan better.</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="544366268" data-name="q11">
+        <legend><span class="qnum">11.</span>During exam stress, I feel like avoiding my studies and other work.</legend>
+        <div class="opts scale" data-scale></div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+    </section>
+
+    <!-- Section C -->
+    <section class="block" aria-labelledby="secC">
+      <div class="section-head">
+        <span class="letter">C</span>
+        <div>
+          <h2 id="secC">What Do You Know?</h2>
+        </div>
+      </div>
+
+      <fieldset class="q" data-entry="173494127" data-name="q12">
+        <legend><span class="qnum">12.</span>Before this survey, did you know about 'defense mechanisms' in psychology?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q12" value="Yes">Yes</label>
+          <label class="opt"><input type="radio" name="q12" value="No">No</label>
+          <label class="opt"><input type="radio" name="q12" value="Somewhat">Somewhat</label>
+        </div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="34515685" data-name="q13">
+        <legend><span class="qnum">13.</span>Which is the best way to handle exam stress?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q13" value="Ignoring the problem">Ignoring the problem</label>
+          <label class="opt"><input type="radio" name="q13" value="Blaming others">Blaming others</label>
+          <label class="opt"><input type="radio" name="q13" value="Studying harder and planning ahead">Studying harder and planning ahead</label>
+          <label class="opt"><input type="radio" name="q13" value="Avoiding thinking about it">Avoiding thinking about it</label>
+        </div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+    </section>
+
+    <!-- Section D -->
+    <section class="block" aria-labelledby="secD">
+      <div class="section-head">
+        <span class="letter">D</span>
+        <div>
+          <h2 id="secD">About You</h2>
+        </div>
+      </div>
+
+      <fieldset class="q" data-entry="369874760" data-name="q14" id="q14">
+        <legend><span class="qnum">14.</span>Are you a school, college or university student?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q14" value="School">School</label>
+          <label class="opt"><input type="radio" name="q14" value="College">College</label>
+          <label class="opt"><input type="radio" name="q14" value="University">University</label>
+        </div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <!-- Conditional: School -->
+      <div class="cond" id="cond-school" hidden>
+        <div class="cond-inner">
+          <div class="q" data-entry="2047522521" data-name="q14s">
+            <p class="qtext"><span class="qnum">14a.</span>Which class are you in?</p>
+            <select name="q14s" id="sel-class" aria-label="Which class are you in?">
+              <option value="">— Choose your class —</option>
+              <option value="Below Class 6">Below Class 6</option>
+              <option value="Class 6">Class 6</option>
+              <option value="Class 7">Class 7</option>
+              <option value="Class 8">Class 8</option>
+              <option value="Class 9">Class 9</option>
+              <option value="Class 10">Class 10</option>
+            </select>
+            <p class="err">Please choose your class.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conditional: College -->
+      <div class="cond" id="cond-college" hidden>
+        <div class="cond-inner">
+          <fieldset class="q" data-entry="1115603966" data-name="q14c">
+            <legend><span class="qnum">14a.</span>Which year are you in?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="q14c" value="1st Year">1st Year</label>
+              <label class="opt"><input type="radio" name="q14c" value="2nd Year">2nd Year</label>
+            </div>
+            <p class="err">Please choose one option.</p>
+          </fieldset>
+        </div>
+      </div>
+
+      <!-- Conditional: University -->
+      <div class="cond" id="cond-uni" hidden>
+        <div class="cond-inner">
+          <div class="q" data-entry="2125709004" data-name="q14u">
+            <p class="qtext"><span class="qnum">14a.</span>Which semester are you in?</p>
+            <select name="q14u" id="sel-sem" aria-label="Which semester are you in?">
+              <option value="">— Choose your semester —</option>
+              <option value="1st Semester">1st Semester</option>
+              <option value="2nd Semester">2nd Semester</option>
+              <option value="3rd Semester">3rd Semester</option>
+              <option value="4th Semester">4th Semester</option>
+              <option value="5th Semester">5th Semester</option>
+              <option value="6th Semester">6th Semester</option>
+              <option value="7th Semester">7th Semester</option>
+              <option value="8th Semester">8th Semester</option>
+            </select>
+            <p class="err">Please choose your semester.</p>
+          </div>
+        </div>
+      </div>
+
+      <fieldset class="q" data-entry="265829547" data-name="q15">
+        <legend><span class="qnum">15.</span>Gender</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q15" value="Female">Female</label>
+          <label class="opt"><input type="radio" name="q15" value="Male">Male</label>
+          <label class="opt"><input type="radio" name="q15" value="Prefer not to say">Prefer not to say</label>
+        </div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+
+      <fieldset class="q" data-entry="45481641" data-name="q16">
+        <legend><span class="qnum">16.</span>Your age</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q16" value="Under 18">Under 18</label>
+          <label class="opt"><input type="radio" name="q16" value="18–20">18–20</label>
+          <label class="opt"><input type="radio" name="q16" value="21–23">21–23</label>
+          <label class="opt"><input type="radio" name="q16" value="24+">24+</label>
+        </div>
+        <p class="err">Please choose one option.</p>
+      </fieldset>
+    </section>
+
+    <div class="submit-area">
+      <div class="form-error" id="formError" role="alert">
+        <span id="formErrorText">Something went wrong. Your answers were not sent. Please check your internet and try again.</span>
+        <br>
+        <button type="button" class="retry" id="retryBtn">Try again</button>
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
+      <p class="fineprint">Your answers are anonymous. No name or email is collected.</p>
+    </div>
+  </form>
+
+  <div class="thanks" id="thanks" role="status">
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2>Thank you! Your response has been recorded.</h2>
+    <p>Your answers will help with this Psychology research project.</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSevJiiJ2PabK5IMpwDv4nmIi2cjJiqNez2CETpeouIM7_BhkQ/formResponse";
+  var FBZX = "2361426732368045495";
+  var SCALE = ["Never","Rarely","Sometimes","Often","Always"];
+
+  // Build the scale options for questions 1-11
+  var scaleBoxes = document.querySelectorAll("[data-scale]");
+  for (var i = 0; i < scaleBoxes.length; i++){
+    var box = scaleBoxes[i];
+    var fieldset = box.closest(".q");
+    var name = fieldset.getAttribute("data-name");
+    for (var j = 0; j < SCALE.length; j++){
+      var label = document.createElement("label");
+      label.className = "opt";
+      var input = document.createElement("input");
+      input.type = "radio";
+      input.name = name;
+      input.value = SCALE[j];
+      var span = document.createElement("span");
+      span.textContent = SCALE[j];
+      label.appendChild(input);
+      label.appendChild(span);
+      box.appendChild(label);
+    }
+  }
+
+  // Conditional follow-up for question 14
+  var conds = {
+    "School": document.getElementById("cond-school"),
+    "College": document.getElementById("cond-college"),
+    "University": document.getElementById("cond-uni")
+  };
+  var pageHistoryMap = { "School": "0,1,4", "College": "0,2,4", "University": "0,3,4" };
+  var currentLevel = "";
+
+  function showCond(level){
+    currentLevel = level || "";
+    for (var key in conds){
+      var el = conds[key];
+      if (key === level){
+        el.hidden = false;
+        // force reflow so the transition runs
+        void el.offsetHeight;
+        el.classList.add("show");
+      } else {
+        el.classList.remove("show");
+        el.hidden = true;
+        // clear any answer in hidden blocks so it is never sent
+        var inputs = el.querySelectorAll("input[type=radio]");
+        for (var k = 0; k < inputs.length; k++) inputs[k].checked = false;
+        var sels = el.querySelectorAll("select");
+        for (var m = 0; m < sels.length; m++) sels[m].value = "";
+        var q = el.querySelector(".q");
+        if (q) q.classList.remove("invalid");
+      }
+    }
+  }
+
+  var levelRadios = document.querySelectorAll('input[name="q14"]');
+  for (var r = 0; r < levelRadios.length; r++){
+    levelRadios[r].addEventListener("change", function(){ showCond(this.value); });
+  }
+
+  // Clear invalid highlight as soon as a question is answered
+  document.getElementById("survey").addEventListener("change", function(e){
+    var q = e.target.closest ? e.target.closest(".q") : null;
+    if (q) q.classList.remove("invalid");
+  });
+
+  function getValue(qEl){
+    var name = qEl.getAttribute("data-name");
+    var radio = qEl.querySelector('input[type="radio"]:checked');
+    if (radio) return radio.value;
+    var sel = qEl.querySelector("select");
+    if (sel) return sel.value;
+    return "";
+  }
+
+  function validate(){
+    var firstBad = null;
+    var questions = document.querySelectorAll("form .q[data-entry]");
+    for (var i = 0; i < questions.length; i++){
+      var qEl = questions[i];
+      // skip questions inside a hidden conditional block
+      var cond = qEl.closest(".cond");
+      if (cond && cond.hidden) { qEl.classList.remove("invalid"); continue; }
+      var val = getValue(qEl);
+      if (!val){
+        qEl.classList.add("invalid");
+        if (!firstBad) firstBad = qEl;
+      } else {
+        qEl.classList.remove("invalid");
+      }
+    }
+    if (firstBad){
+      firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+      return false;
+    }
+    return true;
+  }
+
+  var submitting = false;
+  var form = document.getElementById("survey");
+  var submitBtn = document.getElementById("submitBtn");
+  var formError = document.getElementById("formError");
+
+  function doSubmit(){
+    if (submitting) return;
+    if (!validate()) return;
+    submitting = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+    formError.classList.remove("show");
+
+    var params = new URLSearchParams();
+    var questions = document.querySelectorAll("form .q[data-entry]");
+    for (var i = 0; i < questions.length; i++){
+      var qEl = questions[i];
+      var cond = qEl.closest(".cond");
+      if (cond && cond.hidden) continue;
+      var val = getValue(qEl);
+      if (val) params.append("entry." + qEl.getAttribute("data-entry"), val);
+    }
+    params.append("fvv", "1");
+    params.append("fbzx", FBZX);
+    params.append("pageHistory", pageHistoryMap[currentLevel] || "0,1,4");
+
+    fetch(FORM_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString()
+    }).then(function(){
+      form.style.display = "none";
+      document.getElementById("thanks").classList.add("show");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }).catch(function(){
+      submitting = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit";
+      formError.classList.add("show");
+      formError.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    doSubmit();
+  });
+  document.getElementById("retryBtn").addEventListener("click", function(){
+    doSubmit();
+  });
+})();
+</script>
+</body>
+</html>
