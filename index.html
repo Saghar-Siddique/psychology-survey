@@ -8,44 +8,44 @@
 <title>Defense Mechanisms and Exam Stress Survey</title>
 <style>
   :root{
-    --bg:#fdf3e7;
-    --surface:#fffdf8;
-    --surface-2:#fff1e2;
-    --ink:#33302b;
-    --ink-soft:#6f6459;
-    --line:#f2ddcd;
-    --accent:#e0654a;
+    --bg:#f4f6f3;
+    --surface:#fbfaf7;
+    --surface-2:#eef1ec;
+    --ink:#3a3f3a;
+    --ink-soft:#6d7268;
+    --line:#dfe3dc;
+    --accent:#5f8579;
     --accent-ink:#ffffff;
-    --accent-soft:#ffe9df;
-    --danger:#b3261e;
-    --danger-bg:#fdecea;
+    --accent-soft:#e9f0ec;
+    --danger:#a8433a;
+    --danger-bg:#f9ebe8;
     --radius:18px;
-    --shadow:0 1px 3px rgba(120,70,40,.08), 0 10px 28px rgba(120,70,40,.08);
+    --shadow:0 1px 2px rgba(60,70,60,.06), 0 8px 22px rgba(60,70,60,.06);
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#171310;
-      --surface:#221b17;
-      --surface-2:#2e241e;
-      --ink:#f5ece4;
-      --ink-soft:#c4b3a6;
-      --line:#453729;
-      --accent:#f2a488;
-      --accent-ink:#2b160e;
-      --accent-soft:#3d2a20;
-      --danger:#f2a49e;
-      --danger-bg:#3a211f;
+      --bg:#181b19;
+      --surface:#212620;
+      --surface-2:#2a2f28;
+      --ink:#e6e9e2;
+      --ink-soft:#a9b0a4;
+      --line:#363d35;
+      --accent:#93b8a6;
+      --accent-ink:#16211b;
+      --accent-soft:#2b3630;
+      --danger:#e0a49c;
+      --danger-bg:#3a2422;
       --shadow:0 1px 3px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
     }
   }
   @media (prefers-color-scheme: dark){
     body{
       background:
-        radial-gradient(640px 420px at 8% -5%, rgba(224,101,74,.28), transparent 62%),
-        radial-gradient(560px 420px at 98% 8%, rgba(120,140,255,.22), transparent 62%),
-        radial-gradient(600px 460px at 88% 95%, rgba(80,200,140,.18), transparent 62%),
-        radial-gradient(540px 420px at 2% 92%, rgba(255,120,170,.20), transparent 62%),
-        linear-gradient(160deg, #241a15 0%, #2a1b22 34%, #1c2233 66%, #16241c 100%);
+        radial-gradient(640px 420px at 8% -5%, rgba(147,184,166,.12), transparent 65%),
+        radial-gradient(560px 420px at 98% 8%, rgba(140,160,190,.10), transparent 65%),
+        radial-gradient(600px 460px at 88% 95%, rgba(130,170,145,.10), transparent 65%),
+        radial-gradient(540px 420px at 2% 92%, rgba(160,150,180,.09), transparent 65%),
+        linear-gradient(160deg, #1a1f1a 0%, #1d2126 50%, #1a1f1c 100%);
     }
   }
   *{ box-sizing:border-box; }
@@ -53,11 +53,11 @@
   body{
     margin:0;
     background:
-      radial-gradient(640px 420px at 8% -5%, rgba(255,183,140,.55), transparent 62%),
-      radial-gradient(560px 420px at 98% 8%, rgba(167,216,255,.55), transparent 62%),
-      radial-gradient(600px 460px at 88% 95%, rgba(190,240,205,.60), transparent 62%),
-      radial-gradient(540px 420px at 2% 92%, rgba(255,205,230,.55), transparent 62%),
-      linear-gradient(160deg, #fff3e2 0%, #ffe9f0 32%, #e9f4ff 64%, #e2f7e8 100%);
+      radial-gradient(640px 420px at 8% -5%, rgba(180,205,190,.28), transparent 65%),
+      radial-gradient(560px 420px at 98% 8%, rgba(175,195,220,.25), transparent 65%),
+      radial-gradient(600px 460px at 88% 95%, rgba(190,210,195,.25), transparent 65%),
+      radial-gradient(540px 420px at 2% 92%, rgba(205,195,215,.22), transparent 65%),
+      linear-gradient(160deg, #f6f7f4 0%, #f1f4f1 40%, #eef2f4 70%, #f3f4ef 100%);
     background-attachment:fixed;
     color:var(--ink);
     font-family:"Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -68,7 +68,7 @@
 
   /* Header */
   header.top{
-    background:linear-gradient(120deg, #ff9e7d 0%, #ff7d9c 52%, #a78bfa 100%);
+    background:linear-gradient(120deg, #5f8579 0%, #74908a 100%);
     color:var(--accent-ink);
     border-radius:var(--radius);
     padding:26px 22px 22px;
@@ -119,7 +119,7 @@
     display:flex; align-items:baseline; gap:10px; margin:0 4px 12px;
   }
   .section-head .letter{
-    background:linear-gradient(135deg, #ff9e7d, #ff7d9c); color:var(--accent-ink);
+    background:var(--accent); color:var(--accent-ink);
     font-weight:700; font-size:14px;
     border-radius:8px; padding:3px 9px; flex:none;
   }
@@ -224,7 +224,7 @@
     min-height:58px;
     border:none;
     border-radius:12px;
-    background:linear-gradient(120deg, #ff9e7d 0%, #ff7d9c 52%, #a78bfa 100%);
+    background:var(--accent);
     color:var(--accent-ink);
     font-size:18px; font-weight:700;
     cursor:pointer;
