@@ -242,7 +242,7 @@
     background:transparent; color:var(--danger);
     font-size:16px; font-weight:700; cursor:pointer;
   }
-  .fineprint{ display:table; margin:16px auto 0; background:var(--accent-soft); border:1.5px solid var(--accent); border-radius:999px; padding:10px 20px; text-align:center; color:var(--accent); font-size:16px; font-weight:700; }
+  .privacy-banner{ display:table; margin:0 auto 14px; background:var(--accent-soft); border:1.5px solid var(--accent); border-radius:999px; padding:10px 22px; text-align:center; color:var(--accent); font-size:16px; font-weight:700; box-shadow:var(--shadow); }
 
   /* Thank you */
   .thanks{
@@ -280,6 +280,7 @@
 </head>
 <body>
 <div class="wrap">
+  <div class="privacy-banner">🔒 Your answers are anonymous. No name or email is collected.</div>
 
   <header class="top">
     <p class="kicker">Research Survey · Introduction to Psychology Project</p>
@@ -521,7 +522,6 @@
         <button type="button" class="retry" id="retryBtn">Try again</button>
       </div>
       <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
-      <p class="fineprint">Your answers are anonymous. No name or email is collected.</p>
     </div>
   </form>
 
